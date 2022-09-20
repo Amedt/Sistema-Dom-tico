@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- HTML Codes by Quackit.com -->
+<title>Sistema Domótico</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="discapacidad">
+<meta name="description" content="es un sistema domótico diseñador para personas con discapacidad media y grave">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+<h1>SISTEMA DOMOTICO</h1>
+<p></p>
+
+<script type="text/javascript">
+// Funcion para atrapar palabras posteriormente envia a procesa.php
+function web(reconocimiento){
+  console.log(reconocimiento)
+  $.ajax({
+    type:"POST",
+    url:"ejecutar.php",
+    data:"reconocimiento="+reconocimiento,
+  });
+}
+//reconocimiento de voz
+if(annyang){
+  annyang.setLanguage('es-ES');
+  var commands={
+    '*reconocimiento' : web
+  };
+  annyang.addCommands(commands);
+
+  //Iniciar Escucha.
+  annyang.start();
+}
+</script>
+</body>
+</html>
