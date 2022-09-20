@@ -2,7 +2,7 @@
 Este sistema realiza el proceso de encendido de actuadores mediante 
 voz en diferentes áreas  de la vivienda,  esto quiere decir, si el 
 usuario  desea encender  la  luz de su dormitorio, solo tiene que 
-iniciando con la palabra clave “Viki” seguido del actuador que desea 
+iniciando con la palabra clave “Inti” seguido del actuador que desea 
 realizar la acción por  el micrófono, posteriormente esta señal  se 
 envía a la tarjeta Raspberry Pi inalámbricamente el cual contiene 
 una base de datos que verificará si se realiza dicha petición o se 
