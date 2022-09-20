@@ -1,4 +1,4 @@
-# Sistema-Dom-tico
+# Sistema-Domotico
 Este sistema realiza el proceso de encendido de actuadores mediante 
 voz en diferentes áreas  de la vivienda,  esto quiere decir, si el 
 usuario  desea encender  la  luz de su dormitorio, solo tiene que 
