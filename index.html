@@ -11,7 +11,53 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<style>
+#hause
+{
+  background-color: #006CC4;
+  position: relative;
+}
+#salaimg
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1
+}
+#dormitorioimg
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2
+}
+#cuartoimg
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3
+}
+#banoimg
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4
+}
+#armarioimg
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5
+}
+#casa
+{
+  position: relative;
+  z-index: 6
+}
+</style>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -48,11 +94,13 @@
         <p><a href="#">Inti apagar luz dormitor</a></p>
       </div>
       <div class="col-sm-8 text-left">
-        <h1>Adelante, pruébalo…</h1>
-        <img src="images/plano-casa.jpg" class="img-responsive" alt="Cinque Terre" width="500" height="366">
+        <h1>Adelante, pruébalo…  </h1>
+        <div id="hause">
+          <img src="images/plano-casa.png" id="casa" class="img-responsive" alt="Casa Domotica" width="100%" height="auto">
+        </div>
         <hr>
         <h3>Funciona en Google Chrome </h3>
-        <p>...........</p>
+        <p><span id="consola"></span></p>
       </div>
       <div class="col-sm-2 sidenav">
         <div class="well">
@@ -76,10 +124,63 @@ function web(reconocimiento){
   console.log(reconocimiento)
   $.ajax({
     type:"POST",
-    url:"ejecutar.php",
+    url:"./ejecutar.php",
     data:"reconocimiento="+reconocimiento,
-  });
+  }).done(function(msg) {
+
+if(msg=="luz encendida")
+{
+  $("#hause").append('<img id="salaimg" src="images/sala-encendida.png" width="100%" height="auto"/>')
+  $("#consola").html(msg);
+}else if(msg=="luz apagada")
+{
+  $("#consola").html(msg);
+  $("#hause > img#salaimg").remove();
 }
+if(msg=="luz dormitorio encendida")
+{
+  $("#hause").append('<img id="dormitorioimg" src="images/dormitorio.png" width="100%" height="auto"/>')
+  $("#consola").html(msg);
+}else if(msg=="luz dormitorio apagada")
+{
+  $("#consola").html(msg);
+  $("#hause > img#dormitorioimg").remove();
+}
+if(msg=="luz cuarto encendida")
+{
+  $("#hause").append('<img id="cuartoimg" src="images/cuarto.png" width="100%" height="auto"/>')
+  $("#consola").html(msg);
+}else if(msg=="luz cuarto apagada")
+{
+  $("#consola").html(msg);
+  $("#hause > img#cuartoimg").remove();
+}
+
+if(msg=="luz baño encendida")
+{
+  $("#hause").append('<img id="banoimg" src="images/bano.png" width="100%" height="auto"/>')
+  $("#consola").html(msg);
+}else if(msg=="luz baño apagada")
+{
+  $("#consola").html(msg);
+  $("#hause > img#banoimg").remove();
+}
+if(msg=="luz de armario encendida")
+{
+  $("#hause").append('<img id="armarioimg" src="images/armario.png" width="100%" height="auto"/>')
+  $("#consola").html(msg);
+}else if(msg=="luz de armario apagada")
+{
+  $("#consola").html(msg);
+  $("#hause > img#armarioimg").remove();
+}
+
+  }).fail(function (jqXHR, textStatus, errorThrown){
+  $("#consola").html("The following error occured: "+ textStatus +" "+ errorThrown);
+ });
+
+}
+
 //reconocimiento de voz
 if(annyang){
   annyang.setLanguage('es-ES');
