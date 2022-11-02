@@ -1,11 +1,39 @@
 <?php
-  $valor= $_POST["voz"];
-  if($valor=="viki encender la luz sala" || $valor=="viki encender sala")
-  {
-    exec("sudo python actuadores/sala1.py");
-  }
-  if($valor=="viki apagar la sala") || $valor=="viki apagar sala")
-  {
-    exec("sudo python actuadores/sala0.py");
-  }
+$valor= $_POST["reconocimiento"];
+$test = 1;
+//echo $valor;
+
+switch ($valor) {
+    case "Encender luz sala":
+        exec 
+        echo "luz encendida";
+        break;
+    case "Apagar luz sala":
+        echo "luz apagada";
+        break;
+    case "Encender luz dormitorio":
+        echo "luz dormitorio encendida";
+        break;
+    case "Apagar luz dormitorio":
+        echo "luz dormitorio apagada";
+        break;
+    case "Encender luz cuarto";
+        echo "luz cuarto encendida";
+        break;
+    case "Apagar luz cuarto":
+            echo "luz cuarto apagada";
+            break;
+    case "Encender luz baño";
+            echo "luz baño encendida";
+            break;
+    case "Apagar luz baño":
+            echo "luz baño apagada";
+            break;
+    case "Encender luz armario";
+            echo "luz de armario encendida";
+            break;
+    case "Apagar luz armario":
+            echo "luz de armario apagada";
+            break;
+}
 ?>
