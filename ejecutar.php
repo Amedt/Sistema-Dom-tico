@@ -1,11 +1,9 @@
 <?php
 $valor= $_POST["reconocimiento"];
 $test = 1;
-//echo $valor;
 
 switch ($valor) {
     case "Encender luz sala":
-        exec 
         echo "luz encendida";
         break;
     case "Apagar luz sala":
