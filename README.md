@@ -11,3 +11,5 @@ constante ya  que cada palabra es enviada a una librería annyang
 el cual transcribe cada palabra realizada por el micrófono, 
 otra parte importante es que  todos los  elementos  están 
 conectados a la  tarjeta Raspberry Pi. 
+<img width="621" alt="imagen" src="https://user-images.githubusercontent.com/113945763/208197886-f21354e9-1cc4-429e-94dd-5457e5c0af12.png">
+
